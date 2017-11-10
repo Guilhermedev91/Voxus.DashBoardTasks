@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Voxus.Teste.Models.tarefas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dashboard de Tasks</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_da_task)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_do_usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prioridade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Concluido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Concluido_por)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome_da_task)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome_do_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prioridade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concluido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concluido_por)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Codigo }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Codigo }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.Codigo })
+        </td>
+    </tr>
+}
+
+</table>
